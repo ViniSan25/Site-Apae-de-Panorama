@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APAE de Panorama – Transparência</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #1e90ff, #4682b4);
+      padding: 12px 40px;
+      position: relative;
+    }
+
+    .logo-container {
+      margin-left: 150px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      z-index: 100;
+    }
+
+    .logo-container:hover {
+      transform: scale(1.1);
+    }
+
+    .logo {
+      width: 70px;
+      height: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .logo-container {
+        margin-left: 20px;
+      }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #1e90ff, #4682b4);
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 99;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      #transparencia .container {
+        padding: 25px 15px;
+      }
+
+      .year-folder {
+        font-size: 1.1rem;
+        padding: 10px 12px;
+      }
+
+      .file-list {
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #transparencia {
+        padding: 20px 10px;
+      }
+
+      #transparencia .container {
+        padding: 20px 15px;
+      }
+
+      #transparencia h2 {
+        font-size: 1.4rem;
+      }
+
+      .year-folder {
+        font-size: 1rem;
+        padding: 8px 10px;
+      }
+
+      .file-list a {
+        font-size: 0.9rem;
+      }
+    }
+
+    .file-list {
+      display: none;
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+
+    .year-folder {
+      cursor: pointer;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+
+    .file-list a {
+      display: block;
+      margin: 5px 0;
+      text-decoration: none;
+      color: #1e90ff;
+      font-weight: 500;
+    }
+
+    .file-list a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <style>
+    header {
+      background: #fff;
+      padding: 10px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 40px; /* espaço entre logo e nav */
+    }
+    header nav {
+      margin-left: 15em;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    header nav ul li a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-family: sans-serif;
+    }
+
+    header nav ul li a:hover {
+      color: #1e90ff;
+    }
+
+    /* Estilos adicionais para responsividade */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: #000;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+
+    @media (max-width: 900px) {
+      .logo-container {
+        margin-left: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      header nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 99;
+      }
+
+      header nav ul.active {
+        display: flex;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      header nav ul li:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      header nav {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="imagens/logo4.png" alt="Logo da APAE de Panorama" class="logo"/>
+    </a>
+  </div>
+  <div class="menu-toggle" id="mobile-menu">
+    <span style="color: #000; font-size: 1.5rem;">☰</span>
+  </div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="galeria.html" class="active">Galeria</a></li>
+      <li><a href="doacoes.html">Doações</a></li>
+      <li><a href="localizacao.html">Localização</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="sobre.html">Sobre Nós</a></li>
+      <li><a href="transparencia.html">Transparência</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section id="transparencia">
+      <div class="container">
+        <h2>Transparência</h2>
+        <p class="subtitulo">Clique no ano para visualizar os documentos:</p>
+
+        
+
+        <div class="file-explorer">
+          <div class="year-folder" onclick="toggleFolder(this)">
+            📁 2025
+            <div class="file-list">
+              <a href="pdfs\PLANO DE TRABALHO 2025  Panorama.pdf">📄 PLANO DE TRABALHO 2025</a>
+              <a href="pdfs\APAE DE PANORAMA PLANO DE TRABALHO.pdf">📄 APAE DE PANORAMA PLANO DE TRABALHO</a>
+            </div>
+          </div>
+
+           <div class="year-folder" onclick="toggleFolder(this)">
+            📁 2024
+            <div class="file-list">
+              <a href="pdfs\BALANÇO 2024.pdf">📄 BALANÇO 2024</a>
+              <a href="pdfs\PPD 2024.pdf">📄 PPD 2024</a>
+              <a href="pdfs\RELATORIO DE ATIVIDADES 2024.pdf">📄 RELATORIO DE ATIVIDADES 2024</a>
+            </div>
+          </div>
+
+
+        
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>APAE de Panorama</h3>
+        <p>Transformando vidas com amor e inclusão.</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Siga-nos</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/apaepanorama.apae/" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/apae_panorama/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:apaepanorama@hotmail.com.br" target="_blank" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 APAE de Panorama. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menu hamburguer
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Alterna pastas: visibilidade da lista + troca de ícone
+    function toggleFolder(element) {
+      const fileList = element.querySelector('.file-list');
+      const isVisible = fileList.style.display === 'block';
+
+      // Fecha todas as outras pastas
+      document.querySelectorAll('.year-folder').forEach(folder => {
+        const otherList = folder.querySelector('.file-list');
+        const textNode = folder.childNodes[0];
+
+        if (otherList && folder !== element) {
+          otherList.style.display = 'none';
+          if (textNode.nodeValue.trim().startsWith('📂')) {
+            textNode.nodeValue = textNode.nodeValue.replace('📂', '📁');
+          }
+        }
+      });
+
+      // Alterna a visibilidade da atual
+      fileList.style.display = isVisible ? 'none' : 'block';
+
+      // Troca o ícone
+      const text = element.childNodes[0].nodeValue.trim();
+      if (text.startsWith('📁')) {
+        element.childNodes[0].nodeValue = text.replace('📁', '📂');
+      } else if (text.startsWith('📂')) {
+        element.childNodes[0].nodeValue = text.replace('📂', '📁');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doação - APAE de Panorama</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Estilos adicionais para responsividade */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+    
+    .doacao .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    
+    .qr-container {
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+    
+    .qr-container img {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .chave-pix {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      padding: 12px;
+      background-color: #f0f8ff;
+      border-radius: 8px;
+      word-break: break-all;
+    }
+    
+    /* Ajustes para telas menores */
+    @media (max-width: 900px) {
+      .logo-container {
+        margin-left: 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #1e90ff, #4682b4);
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 99;
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      
+      nav ul li:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+      }
+      
+      .doacao h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .doacao h2 {
+        font-size: 1.8rem;
+      }
+      
+      .doacao p {
+        font-size: 1rem;
+      }
+      
+      .chave-pix {
+        font-size: 1rem;
+        padding: 10px;
+      }
+      
+      .qr-container {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <style>
+    header {
+      background: #fff;
+      padding: 10px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 40px; /* espaço entre logo e nav */
+    }
+    header nav {
+      margin-left: 15em;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    header nav ul li a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-family: sans-serif;
+    }
+
+    header nav ul li a:hover {
+      color: #1e90ff;
+    }
+
+    /* Estilos adicionais para responsividade */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: #000;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+
+    @media (max-width: 900px) {
+      .logo-container {
+        margin-left: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      header nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 99;
+      }
+
+      header nav ul.active {
+        display: flex;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      header nav ul li:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      header nav {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="imagens/logo4.png" alt="Logo da APAE de Panorama" class="logo"/>
+    </a>
+  </div>
+  <div class="menu-toggle" id="mobile-menu">
+    <span style="color: #000; font-size: 1.5rem;">☰</span>
+  </div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="galeria.html" class="active">Galeria</a></li>
+      <li><a href="doacoes.html">Doações</a></li>
+      <li><a href="localizacao.html">Localização</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="sobre.html">Sobre Nós</a></li>
+      <li><a href="transparencia.html">Transparência</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section class="doacao">
+      <div class="container">
+        <h2 class="handwriting">Ajude a APAE de Panorama</h2>
+        <p>Com sua doação, você contribui para o desenvolvimento e bem-estar das pessoas atendidas pela nossa instituição.</p>
+
+        <div class="qr-container">
+          <img src="imagens/qr_code_apae.png" alt="QR Code para doação via Pix" />
+          <p>Escaneie o QR Code acima com seu app de banco ou use a chave Pix:</p>
+          <p class="chave-pix"><strong>57.319.675/0001-15</strong></p>
+          <p>Para doar, basta copiar a chave Pix ou escanear o código acima usando o aplicativo do seu banco.</p>
+        </div>
+        
+        <div class="info-extra">
+          <h3><i class="fas fa-info-circle"></i> Importante</h3>
+          <p>Todas as doações são diretamente utilizadas para manutenção de nossos programas e serviços. Sua contribuição faz a diferença!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>APAE de Panorama</h3>
+        <p>Transformando vidas com amor e inclusão.</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Siga-nos</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/apaepanorama.apae/" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/apae_panorama/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:apaepanorama@hotmail.com.br" target="_blank" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 APAE de Panorama. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Menu Hamburguer
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

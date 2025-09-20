@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mais Notícias - APAE de Panorama</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Estilos de responsividade */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+    
+    /* Layout responsivo */
+    #area-noticias {
+      padding: 30px 15px;
+    }
+    
+    .conteudo-noticias h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1e90ff;
+      font-family: 'Dancing Script', cursive;
+    }
+    
+    .layout-noticias {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .caixa-noticia {
+      display: block;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    
+    .caixa-noticia:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .caixa-noticia img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .texto-noticia {
+      font-size: 1.1rem;
+      padding: 15px;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+    
+    /* Ajustes para telas menores */
+    @media (max-width: 900px) {
+      .logo-container {
+        margin-left: 20px;
+      }
+      
+      .conteudo-noticias h2 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #1e90ff, #4682b4);
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 99;
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      
+      nav ul li:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+      }
+      
+      .layout-noticias {
+        gap: 20px;
+      }
+      
+      .caixa-noticia img {
+        height: 180px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #area-noticias {
+        padding: 20px 10px;
+      }
+      
+      .conteudo-noticias h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+      }
+      
+      .layout-noticias {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .caixa-noticia img {
+        height: 160px;
+      }
+      
+      .texto-noticia {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <style>
+    header {
+      background: #fff;
+      padding: 10px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 40px; /* espaço entre logo e nav */
+    }
+    header nav {
+      margin-left: 15em;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    header nav ul li a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-family: sans-serif;
+    }
+
+    header nav ul li a:hover {
+      color: #1e90ff;
+    }
+
+    /* Estilos adicionais para responsividade */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: #000;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+
+    @media (max-width: 900px) {
+      .logo-container {
+        margin-left: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      header nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 99;
+      }
+
+      header nav ul.active {
+        display: flex;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      header nav ul li:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      header nav {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="imagens/logo4.png" alt="Logo da APAE de Panorama" class="logo"/>
+    </a>
+  </div>
+  <div class="menu-toggle" id="mobile-menu">
+    <span style="color: #000; font-size: 1.5rem;">☰</span>
+  </div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="galeria.html" class="active">Galeria</a></li>
+      <li><a href="doacoes.html">Doações</a></li>
+      <li><a href="localizacao.html">Localização</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="sobre.html">Sobre Nós</a></li>
+      <li><a href="transparencia.html">Transparência</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="area-noticias" class="conteudo-noticias">
+    <h2>Notícias Recentes</h2>
+    
+    <div class="layout-noticias">
+      <a href="https://link-da-noticia1.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia1.jpg" alt="Notícia 1">
+        <p class="texto-noticia">Título da Notícia 1</p>
+      </a>
+      <a href="https://link-da-noticia2.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia2.jpg" alt="Notícia 2">
+        <p class="texto-noticia">Título da Notícia 2</p>
+      </a>
+      <a href="https://link-da-noticia3.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia3.jpg" alt="Notícia 3">
+        <p class="texto-noticia">Título da Notícia 3</p>
+      </a>
+      <a href="https://link-da-noticia4.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia4.jpg" alt="Notícia 4">
+        <p class="texto-noticia">Título da Notícia 4</p>
+      </a>
+      <a href="https://link-da-noticia5.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia5.jpg" alt="Notícia 5">
+        <p class="texto-noticia">Título da Notícia 5</p>
+      </a>
+      <a href="https://link-da-noticia6.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia6.jpg" alt="Notícia 6">
+        <p class="texto-noticia">Título da Notícia 6</p>
+      </a>
+      <a href="https://link-da-noticia7.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia7.jpg" alt="Notícia 7">
+        <p class="texto-noticia">Título da Notícia 7</p>
+      </a>
+      <a href="https://link-da-noticia8.com" target="_blank" class="caixa-noticia">
+        <img src="imagens/noticia8.jpg" alt="Notícia 8">
+        <p class="texto-noticia">Título da Notícia 8</p>
+      </a>
+    </div>
+    
+  
+  </section>
+</main>
+
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="footer-container">
+    <div class="footer-info">
+      <h3>APAE de Panorama</h3>
+      <p>Transformando vidas com amor e inclusão.</p>
+    </div>
+
+    <div class="footer-social">
+      <h3>Siga-nos</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/apaepanorama.apae/" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/apae_panorama/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:apaepanorama@hotmail.com.br" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 APAE de Panorama. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Menu Hamburguer
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  mobileMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+  
+  // Animação suave para as notícias
+  document.addEventListener("DOMContentLoaded", function() {
+    const noticias = document.querySelectorAll('.caixa-noticia');
+    
+    noticias.forEach((noticia, index) => {
+      noticia.style.opacity = "0";
+      noticia.style.transform = "translateY(20px)";
+      noticia.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      
+      setTimeout(() => {
+        noticia.style.opacity = "1";
+        noticia.style.transform = "translateY(0)";
+      }, 200 + (index * 100));
+    });
+  });
+</script>
+</body>
+</html>
